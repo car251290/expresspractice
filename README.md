@@ -15,3 +15,6 @@ POST /users/ will be handled by the createUser instance. For any other requests,
 Again, none of this is required, and it's a bit of an overweight solution since each specific endpoint will include the full application code for your other endpoints. 
 However, it's a good balance between speed of development by using the tools you're used to along with the per-endpoint granularity that serverless application patterns provide.
 
+This is a very simple application that returns "Hello World!" when a request comes in on the root path /.
+
+It's straight out of the Express documentation with two small additions. First, we imported the serverless-http package at the top. Second, we exported a handler function which is our application wrapped in the serverless package.
