@@ -8,9 +8,11 @@ We're forwarding all traffic on the domain to our application and letting Expres
 
 However, we also lose some of the benefits of the serverless architecture. I can isolate my bits of logic into separate functions and get a decent look at my application from standard metrics. If each route is handled by a different Lambda function, then I can see:
 
-How many times each route is invoked
+## How many times each route is invoked
 How many errors I have for each route
 How long each route takes (and how much money I could save if I made that route faster)
+
+This app starts a server and listens on port 3000 for connections. The app responds with “Hello World!” for requests to the root URL (/) or route. For every other path, it will respond with a 404 Not Found.
 
 ##Post
 Now, all requests to GET /users/:userId will be handled by the getUser instance of your application, and all requests to 
