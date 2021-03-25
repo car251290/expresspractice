@@ -8,6 +8,7 @@ const AWS = require('aws-sdk');
 
 const USERS_TABLE = process.env.USERS_TABLE;
 let dynamoDB;
+//state for get aws
 if(Is_OFFLINE === 'true') {
     dynamoDB = new AWS.DynamoDB.DocumentClient({
         region: 'localhost',
@@ -32,12 +33,13 @@ app.get('/users/:UserId',function(req,res) {
             userId: req.params.userId,
         },
     }
-    dynamoDB.get(params,(error,result)=> {
-        if(error){
+    //get the paramater with the err and with the item
+    dynamoDB.get(params, (error, result) => {
+        if (error) {
             console.log(error);
             res.status(400).json({error:'could not get user'})
         }
-        if(result.item) {
+        if (result.item) {
             const {userId,name} = result.Item;
             res.json({userId,name});
         } else {
@@ -46,11 +48,11 @@ app.get('/users/:UserId',function(req,res) {
     });
 })
 // create user endpoint 
-
-app.post('user',function(req,res){
-    const {userId,name} = req.body;
+//create the post method
+app.post('user',function (req,res) {
+    const {userId, name} = req.body;
     if(typeof userId != 'string'){
-        res.status(400).json({error: '"userId" must be string'});
+        res.status(400).json({ error: '"userId" must be string'});
 
     } else if (typeof name !== 'string') {
         res.status(400).json({error: '"name" must be a string'})
@@ -62,6 +64,7 @@ app.post('user',function(req,res){
             name: name,
         },
     };
+    //Http method put
     dynamoDB.put(params,(error) => {
         if(error) {
             console.log(error);
