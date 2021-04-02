@@ -21,6 +21,9 @@ POST /users/ will be handled by the createUser instance. For any other requests,
 Again, none of this is required, and it's a bit of an overweight solution since each specific endpoint will include the full application code for your other endpoints. 
 However, it's a good balance between speed of development by using the tools you're used to along with the per-endpoint granularity that serverless application patterns provide.
 
+# AWS 
+This section walks you through deploying a sample application to Elastic Beanstalk using Elastic Beanstalk Command Line Interface (EB CLI) and Git, and then updating the application to use the Express framework.
+
 ## Where:
 
 app is an instance of express.
