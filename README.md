@@ -25,5 +25,9 @@ This section walks you through deploying a sample application to Elastic Beansta
 ## Where:
 app is an instance of express.
 METHOD is an HTTP request method, in lowercase.
-PATH is a path on the server.
+PATH is a path on the servES6 features
+
+# node.js
+The ES6 section describes the three ES6 feature groups, and details which features are enabled by default in Node.js, alongside explanatory links. It also shows how to find which version of V8 shipped with a particular Node.js release.er.
 HANDLER is the function executed when the route is matched.
+
